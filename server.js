@@ -12,7 +12,7 @@ connectDB();
 
 // Create server and setup socket.io
 
-// const server = http.createServer(app);
+const server = http.createServer(app);
 // const io = socketConfig(server);
 
 // Initialize Socket.IO
