@@ -68,7 +68,10 @@ const placeBid = async (req, res) => {
       _id: auctionId,
     });
 
+    console.log(auction, 'auctionss12')
+
     if (!auction) {
+      console.log(auction, 'auctionss')
       return res.status(400).json({ error: "No active auction found." });
     }
 
