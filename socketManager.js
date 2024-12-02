@@ -59,7 +59,7 @@ const startAuctionTimer = async (pusher, auctionId) => {
 const placeBid = async (req, res) => {
   try {
     const { auctionId, bidAmount, token } = req.body;
-    // console.log(req.body,req.user, 'body')
+    console.log(req.body,req.user, 'body')
     const decoded = req.user.email;
     console.log(decoded, "id");
     const auction = await Auction.findOne({
@@ -101,6 +101,7 @@ const placeBid = async (req, res) => {
           status: 200,
         });
     } else {
+      console.log('hi')
       return res
         .status(400)
         .json({ error: "Bid must be higher than the current bid." });
