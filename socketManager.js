@@ -75,7 +75,8 @@ const placeBid = async (req, res) => {
       return res.status(400).json({ error: "No active auction found." });
     }
 
-    if (bidAmount > auction.currentBid) {
+    // if (bidAmount > auction.currentBid) 
+    //   {
       auction.currentBid = bidAmount;
       auction.highestBidder = decoded;
       auction.timer = 30;
@@ -100,12 +101,12 @@ const placeBid = async (req, res) => {
           message: "Bid placed successfully.",
           status: 200,
         });
-    } else {
-      console.log('hi')
-      return res
-        .status(400)
-        .json({ error: "Bid must be higher than the current bid." });
-    }
+    // } else {
+    //   console.log('hi')
+    //   return res
+    //     .status(400)
+    //     .json({ error: "Bid must be higher than the current bid." });
+    // }
   } catch (error) {
     console.error("Error handling bid event:", error);
     return res
