@@ -13,17 +13,4 @@ exports.getActiveAuctions = async (req, res) => {
   }
 };
 
-exports.createAuction = async (req, res) => {
-  const { product, startingBid } = req.body;
-  try {
-    const newAuction = new Auction({
-      product,
-      currentBid: startingBid,
-    });
-    const savedAuction = await newAuction.save();
-    res.status(201).json({ message: "Auction created successfully", auction: savedAuction });
-  } catch (error) {
-    console.error("Error creating auction:", error);
-    res.status(500).json({ message: "Failed to create auction." });
-  }
-};
+
